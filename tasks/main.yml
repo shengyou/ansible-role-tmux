@@ -1,0 +1,23 @@
+---
+# tasks file for tmux
+
+- name: install epel-release (CentOS)
+  yum:
+    name: epel-release
+    state: present
+    update_cache: yes
+  when: ansible_distribution == "CentOS"
+
+- name: install tmux (Ubuntu)
+  apt:
+    name: tmux
+    state: present
+    update_cache: yes
+  when: ansible_distribution == "Ubuntu"
+
+- name: install tmux (CentOS)
+  yum:
+    name: tmux
+    state: present
+    update_cache: yes
+  when: ansible_distribution == "CentOS"
